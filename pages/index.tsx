@@ -43,10 +43,14 @@ async function deleteBook(id: string) {
 
 export default function Index({ initialBooks }) {
   const [books, setBooks] = useState<Book[]>(initialBooks);
+  const [newBookList, setNewList ]= useState<Book[]>(books)
 
   useEffect(() => {
-    console.log('effect will run if books has changed ', books);
-  },[books]);
+    if(newBookList.length !== books.length){
+      setBooks(newBookList)
+    }
+    console.log('effect will run if books has changed ', newBookList);
+  },[newBookList]);
   return (
     <>
       <Head>
@@ -83,10 +87,19 @@ export default function Index({ initialBooks }) {
               <BookCard book={b} delete= {async() => {
               try {
                 await deleteBook(b.id);
+                const newList = []
+                books.filter((i)=>{
+                  if(i.id !==b.id){
+                    newList.push(i)
+                  }
+                })
+              setNewList(newList)
+              console.log("NEW LIST: ", newList)
+              
               } catch (err) {
                 console.error(err);
-              }
-            }}/>
+              } 
+            }    }/>
             </div>
           ))}
         </section>

@@ -6,7 +6,7 @@ First, run the development server:
 ```bash
 npm run dev
 ```
-To run database consol:
+To run database console:
 ```bash
 npx prisma studio
 ```
