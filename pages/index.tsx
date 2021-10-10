@@ -31,7 +31,6 @@ async function deleteBook(id: string) {
     method: 'DELETE',
   });
 
-  console.log("BOOK TO DELETE RES: ", response)
   if (!response.ok) {
       console.error(response.statusText);
   }
@@ -49,7 +48,6 @@ export default function Index({ initialBooks }) {
     if(newBookList.length !== books.length){
       setBooks(newBookList)
     }
-    console.log('effect will run if books has changed ', newBookList);
   },[newBookList]);
   return (
     <>
@@ -94,8 +92,6 @@ export default function Index({ initialBooks }) {
                   }
                 })
               setNewList(newList)
-              console.log("NEW LIST: ", newList)
-              
               } catch (err) {
                 console.error(err);
               } 

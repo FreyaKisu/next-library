@@ -7,7 +7,6 @@ interface BookCardProps {
 
 export default function BookCard(props: BookCardProps) {
 const {id} = props.book;
- console.log("ID: ", id)
 
   return (
     <div className="border rounded-lg p-4 flex">

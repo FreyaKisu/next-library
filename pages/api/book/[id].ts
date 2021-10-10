@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 // DELETE /api/book/:id
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const bookId = req.query.id;
-  console.log("BOOK ID: ", bookId);
 
   if (req.method === "DELETE") {
     try {
